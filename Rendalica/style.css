@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(bg.png);
+    background-size: cover; /* Prilagođava veličinu pozadine tako da popuni cijelu površinu */
+    background-position: center; /* Centrira pozadinu */
+    user-select: none; /* Onemogućava selektovanje teksta na stranici */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Dodat margin na vrhu */
+}
+
+.gornji_deo,
+.donji_deo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.resenje {
+    text-align: center;
+    margin-top: 20px; /* Dodat margin na vrhu */
+}
+
+.red {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.polje {
+    text-align: center;
+    background-color: #6495ED; /* Plava boja */
+    color: #FFFFFF; /* Bela boja teksta */
+    padding: 15px 25px;
+    margin: 5px;
+    width: 200px;
+    border-radius: 10px; /* Smanjen radi modernijeg izgleda */
+    border: 2px solid transparent; /* Dodat border */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Dodata tranzicija za transform, senku i boju bordra */
+    cursor: pointer; /* Dodat kursor koji ukazuje na to da je polje klikabilno */
+}
+
+.polje:hover {
+    background-color: #4169E1; /* Tamnija plava boja na hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Dodata senka na hover */
+    border-color: #FFFFFF; /* Beli border na hover */
+}
+
+.polje:active {
+    transform: scale(0.95); /* Smanjuje veličinu polja kada se klikne na njega */
+}
+
+input.polje::placeholder {
+    color: #FFFFFF; /* Bela boja za placeholder tekst */
+    padding: 10px 20px;
+}
+
+input.polje {
+    text-align: center;
+    background-color: #6495ED; /* Plava boja */
+    color: #FFFFFF; /* Bela boja teksta */
+    padding: 15px 25px;
+    margin: 5px;
+    width: 200px; /* Postavljena širina input polja */
+    height: 20px; /* Postavljena visina input polja */
+    border-radius: 10px; /* Smanjen radi modernijeg izgleda */
+    border: 2px solid transparent; /* Dodat border */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Dodata tranzicija za transform, senku i boju bordra */
+    cursor: pointer; /* Dodat kursor koji ukazuje na to da je polje klikabilno */
+}
+
+
+
+/* Animacije */
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+  
+@keyframes red-color {
+    0%, 100% { background-color: inherit; }
+    50% { background-color: #FF6347; } /* Crvena boja */
+}
+  
+@keyframes zoom-in {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes correct-answer {
+    0% { background-color: inherit; }
+    50% { background-color: #158000; } /* Zelena boja */
+    100% { background-color: inherit; }
+}
+
+.wrong-animation {
+    animation: shake 0.3s ease-in-out, red-color 0.3s ease-in-out;
+}
+  
+.correct-animation {
+    animation: zoom-in 0.3s ease-in-out, correct-answer 0.3s ease-in-out;
+}
+
+.correct {
+    animation: correct-answer 1s ease-in-out;
+}
+
+/* Dodatno */
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Zelena boja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Dodata tranzicija za boju pozadine */
+    font-size: 16px; /* Povećana veličina fonta */
+}
+
+button:hover {
+    background-color: #45a049; /* Tamnija zelena boja na hover */
+    transform: translateY(-2px); /* Pomeranje dugmeta na hover */
+}
+
+/* Centriranje dugmeta */
+button#resetBtn {
+    margin-top: 30px; /* Dodat dodatni margin na vrhu dugmeta */
+    align-self: center; /* Centriranje dugmeta */
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .polje {
+        width: 100px; /* Polja će zauzimati celu širinu ekrana */
+        margin: 5px 0; /* Manji razmak između polja */
+    }
+    .container {
+        margin-top: 10px; /* Smanjeni margini na vrhu kontejnera */
+    }
+}
